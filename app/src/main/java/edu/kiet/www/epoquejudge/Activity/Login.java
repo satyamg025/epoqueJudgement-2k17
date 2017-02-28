@@ -3,6 +3,7 @@ package edu.kiet.www.epoquejudge.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
@@ -113,7 +114,7 @@ public class Login extends AppCompatActivity {
                 progressDialog.setCancelable(false);
                 progressDialog.setMessage("Authenticating...");
                 progressDialog.show();
-                Log.e("fcm_id", FirebaseInstanceId.getInstance().getToken());
+//                Log.e("fcm_id", FirebaseInstanceId.getInstance().getToken());
 
                 LoginRequest loginRequest = ServiceGenerator.createService(LoginRequest.class, username.getText().toString(), password.getText().toString());
                 Call<LoginPOJO> call = loginRequest.responseRequest();
@@ -128,7 +129,7 @@ public class Login extends AppCompatActivity {
 
                                 DbHandler.setSession(Login.this, responseBody.getKey(), responseBody.getPerson());
                                 DbHandler.putBoolean(Login.this,"isForcedLoggedOut",false);
-                               // startActivity(new Intent(getActivity(), Home.class));
+                                startActivity(new Intent(Login.this, Dashboard.class));
                             } else {
                                 new AlertDialog.Builder(Login.this)
                                         .setTitle("Failed")
