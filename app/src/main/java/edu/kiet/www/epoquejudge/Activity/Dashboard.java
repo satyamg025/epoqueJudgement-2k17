@@ -26,12 +26,12 @@ RecyclerView recyclerView;
         schedule=new ArrayList<>();
         for (int i=1;i<=10;i++)
         {
-            eventName.add("Event Nane:Event Name");
+            eventName.add("Event Name:Event Name");
             type.add("Type:Institute");
             category.add("Category:Solo");
             venue.add("Venue:Ground Floor");
             schedule.add("Scheduled At:14:00:00");
         }
-        adapter=new EventsAdapter(eventName,type,category,venue,schedule);
+        adapter=new EventsAdapter(this,eventName,type,category,venue,schedule);
     }
 }

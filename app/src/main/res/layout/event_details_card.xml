@@ -9,7 +9,7 @@
     card_view:cardBackgroundColor="@android:color/transparent"
     card_view:cardCornerRadius="5dp"
     android:clickable="true"
-    android:layout_height="150dp"
+    android:layout_height="180dp"
     android:layout_width="match_parent"
     >
     <FrameLayout
@@ -24,19 +24,68 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#61000000"/>
+            android:background="#45000000"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="10dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Event Name "
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:gravity="center_horizontal"
-            android:textColor="#f1ffffff"
-            android:id="@+id/event_name"
-            android:textStyle="bold|italic"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="Event Name"
+            android:layout_gravity="left"
+            android:id="@+id/event_name"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:textStyle="italic|bold"
             />
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/white"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type"
+                android:layout_marginTop="5dp"
+                android:id="@+id/type"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="3dp"
+                android:id="@+id/category"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Venue"
+                android:layout_marginTop="3dp"
+                android:id="@+id/venue"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Schedule"
+                android:layout_marginTop="3dp"
+                android:id="@+id/schedule"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+        </LinearLayout>
     </FrameLayout>
 
 
