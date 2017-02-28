@@ -6,6 +6,7 @@
     android:minHeight="150dp"
     android:layout_margin="5dp"
     app:cardCornerRadius="15dp"
+    android:id="@+id/participant_group_card"
     app:cardBackgroundColor="#75d50000">
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,13 +36,14 @@
             android:text="Participants"
             android:layout_marginTop="10dp"
             android:textSize="18sp"
-            android:id="@+id/participants"
+            android:id="@+id/participants_group"
             android:textColor="@color/white"/>
         <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Give Judgement"
             android:textColor="#00e5ff"
+            android:id="@+id/give_judgement_group"
             android:layout_gravity="right"
             android:textSize="16sp"
             android:gravity="center"

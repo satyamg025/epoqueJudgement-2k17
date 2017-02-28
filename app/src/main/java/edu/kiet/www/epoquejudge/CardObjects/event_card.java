@@ -1,4 +1,4 @@
-package edu.kiet.www.epoquejudge;
+package edu.kiet.www.epoquejudge.CardObjects;
 
 /**
  * Created by shrey on 27/2/17.

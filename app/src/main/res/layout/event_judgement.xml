@@ -28,6 +28,8 @@
                 android:layout_weight="0.3"
                 android:textColor="@color/white"
                 android:textSize="30sp"
+                android:layout_gravity="right"
+                android:gravity="right"
                 android:text="Marks"
                 android:textStyle="bold|italic"/>
 
@@ -56,6 +58,7 @@
             <Spinner
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:id="@+id/m1"
                 android:layout_weight="0.1"/>
         </TableRow>
         <TableRow
@@ -73,6 +76,7 @@
             <Spinner
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:id="@+id/m2"
                 android:layout_weight="0.1"/>
         </TableRow>
         <TableRow
@@ -90,6 +94,7 @@
             <Spinner
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:id="@+id/m3"
                 android:layout_weight="0.1"/>
         </TableRow>
         <TableRow
@@ -104,9 +109,22 @@
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:text="Attribute 4"/>
-
+            <Spinner
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/m4"
+                android:layout_weight="0.1"/>
         </TableRow>
 
     </TableLayout>
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textColor="#1bffff"
+        android:background="#80bebebe"/>
 
 </LinearLayout>
