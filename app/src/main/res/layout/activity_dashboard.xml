@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_request_send"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/image">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -17,11 +16,19 @@
         app:titleTextColor="@color/white"
         app:layout_collapseMode="pin"
         />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#AFd50000"/>
 <android.support.v7.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     android:id="@+id/event_details">
 
 </android.support.v7.widget.RecyclerView>
+    </FrameLayout>
 </LinearLayout>

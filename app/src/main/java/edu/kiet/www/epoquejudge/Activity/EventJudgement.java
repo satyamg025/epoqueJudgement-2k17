@@ -2,6 +2,7 @@ package edu.kiet.www.epoquejudge.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,6 +22,13 @@ public class EventJudgement extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_judgement);
+        Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Judgement");
+        setTitleColor(getResources().getColor(R.color.white));
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         String[] marks={"0","1","2","3","4","5"};
         Spinner a1,a2,a3,a4;
         a1=(Spinner)findViewById(R.id.m1);
