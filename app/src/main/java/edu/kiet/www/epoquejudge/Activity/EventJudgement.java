@@ -9,8 +9,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
-
+import java.util.*;
 import edu.kiet.www.epoquejudge.R;
 
 /**
