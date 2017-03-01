@@ -55,7 +55,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.view_holde
             holder.Category.setText("Group");
         }
         holder.Venue.setText(data.getVenue().get(position));
-        holder.Schedule.setText(data.getDate()+" "+data.getStartTime()+" to "+data.getEndTime());
+        holder.Schedule.setText(data.getDate().get(position)+" "+data.getStartTime().get(position)+" to "+data.getEndTime().get(position));
 
 
     }
@@ -90,6 +90,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.view_holde
                 public void onClick(View view) {
                     Intent intent=new Intent(context,ParticipantsActivity.class);
                     intent.putExtra("event_id",data.getEventId().get(getAdapterPosition()));
+                    intent.putExtra("category",data.getCategory().get(getAdapterPosition()));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }

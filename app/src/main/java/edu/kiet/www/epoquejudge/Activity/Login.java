@@ -5,15 +5,15 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.google.firebase.iid.FirebaseInstanceId;
 
 import edu.kiet.www.epoquejudge.Models.LoginPOJO;
 import edu.kiet.www.epoquejudge.R;
@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity {
     Button login;
     EditText username,password;
     TextInputLayout user_layout,pass_layout;
+    Boolean doubleBackToExitPressedOnce=false;
     private View.OnClickListener mSnackBarClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -46,22 +47,6 @@ public class Login extends AppCompatActivity {
         login=(Button)findViewById(R.id.login);
         //logintxt=(TextView)parentView.findViewById(R.id.login_text);
 
-        if(DbHandler.getBoolean(Login.this, "isForcedLoggedOut", false)){
-            DbHandler.putBoolean(Login.this,"isForcedLoggedOut",false);
-            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Session Expired", Snackbar.LENGTH_LONG);
-            coloredSnackBar.alert(snackbar).show();
-        }
-
-        Boolean check_login= DbHandler.getBoolean(getApplicationContext(),"isLoggedIn", false);
-        if(!check_login) {
-            Intent intent=new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
-
-        }
-        else {
-            Intent intent=new Intent(getApplicationContext(), Dashboard.class);
-            startActivity(intent);
-        }
 
         username=(EditText)findViewById(R.id.input_roll);
         password=(EditText)findViewById(R.id.input_password);
@@ -191,6 +176,31 @@ public class Login extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onBackPressed(){
+
+            if (doubleBackToExitPressedOnce) {
+                this.finishAffinity();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"Press again to exit", Snackbar.LENGTH_SHORT);
+            coloredSnackBar.warning(snackbar).show();
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
+        }
+        // super.onBackPressed();
+
+
+
 
 }
 

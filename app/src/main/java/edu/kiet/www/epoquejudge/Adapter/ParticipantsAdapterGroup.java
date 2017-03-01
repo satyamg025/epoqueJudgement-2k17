@@ -9,46 +9,57 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.kiet.www.epoquejudge.Activity.EventJudgement;
-import edu.kiet.www.epoquejudge.Models.GetSoloTeamsPOJO;
+import edu.kiet.www.epoquejudge.Models.GetGroupTeamsPOJO;
 import edu.kiet.www.epoquejudge.R;
 
 /**
  * Created by sooraj on 27-02-2017.
  */
 
-public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsAdapter.view_holder> {
+public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsAdapterGroup.view_holder> {
     Context context;
-    GetSoloTeamsPOJO data;
+    GetGroupTeamsPOJO data;
 
-    public ParticipantsAdapter(Context applicationContext, GetSoloTeamsPOJO body) {
+    public ParticipantsAdapterGroup(Context applicationContext, GetGroupTeamsPOJO body) {
         this.context=applicationContext;
         this.data=body;
     }
 
     @Override
     public view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.event_participants_solo_card,null);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.event_participants_group_card,null);
         return new view_holder(view);
     }
 
     @Override
     public void onBindViewHolder(view_holder holder, int position) {
-        holder.participants_solo.setText(data.getName().get(position));
+
+        holder.teamName.setText(data.getTeamName().get(position));
+        String members="";
+        String team_mem=data.getTeamMember().get(position);
+        String team_members[]=team_mem.split(",");
+        for(int i=0;i<data.getName().get(position).size();i++){
+            members=members+data.getName().get(position).get(i)+" ("+team_members[i]+")";
+            members=members+"\n";
+
+        }
+        holder.participants_group.setText(members);
+
     }
 
     @Override
     public int getItemCount() {
-        return data.getName().size();
+        return data.getTeamName().size();
     }
     public class view_holder extends RecyclerView.ViewHolder{
-        TextView teamName,participants_solo;
-        AppCompatButton give_judgement_solo;
+        TextView teamName,participants_group;
+        AppCompatButton give_judgement_group;
         public view_holder(View itemView) {
             super(itemView);
             teamName=(TextView)itemView.findViewById(R.id.teamname);
-           participants_solo=(TextView)itemView.findViewById(R.id.participants_solo);
-            give_judgement_solo=(AppCompatButton)itemView.findViewById(R.id.give_judgement_solo);
-            give_judgement_solo.setOnClickListener(new View.OnClickListener() {
+            participants_group=(TextView)itemView.findViewById(R.id.participants_group);
+            give_judgement_group=(AppCompatButton)itemView.findViewById(R.id.give_judgement_group);
+            give_judgement_group.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent=new Intent(context,EventJudgement.class);

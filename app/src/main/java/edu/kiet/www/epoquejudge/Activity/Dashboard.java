@@ -3,7 +3,6 @@ package edu.kiet.www.epoquejudge.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import edu.kiet.www.epoquejudge.Adapter.EventsAdapter;
@@ -40,13 +39,14 @@ RecyclerView recyclerView;
         setSupportActionBar(toolbar);
         setTitle("Dashboard");
         setTitleColor(getResources().getColor(R.color.white));
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressDialog=new ProgressDialog(this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
+
+
+// Initialize Stetho with the Initialize
 
         final EventDetailsRequest request= ServiceGenerator.createService(EventDetailsRequest.class, DbHandler.getString(this,"bearer",""));
         Call<EventDetailsPOJO> call=request.request();
@@ -102,5 +102,23 @@ RecyclerView recyclerView;
 
 
                      });
+    }
+    @Override
+    public void onBackPressed(){
+        new AlertDialog.Builder(Dashboard.this)
+                .setTitle("Logout")
+                .setMessage("Are you sure you want to Logout?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        DbHandler.unsetSession2(Dashboard.this, "isLoggedOut");
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .show();
+
     }
 }
