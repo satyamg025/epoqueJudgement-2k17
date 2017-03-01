@@ -2,6 +2,7 @@ package edu.kiet.www.epoquejudge.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -25,6 +26,9 @@ public class ParticipantsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_participants);
         recyclerView=(RecyclerView)findViewById(R.id.event_details);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
         eventName=new ArrayList<>();
         participants_group=new ArrayList<>();
         participants_solo=new ArrayList<>();
@@ -35,5 +39,6 @@ public class ParticipantsActivity extends AppCompatActivity {
             participants_solo.add("Participant Solo:Participant Solo");
         }
         adapter=new ParticipantsAdapter(this,eventName,participants_group,participants_solo);
+        recyclerView.setAdapter(adapter);
     }
 }
