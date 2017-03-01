@@ -25,6 +25,8 @@ RecyclerView recyclerView;
         setSupportActionBar(toolbar);
         setTitle("Dashboard");
         setTitleColor(getResources().getColor(R.color.white));
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView=(RecyclerView)findViewById(R.id.event_details);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

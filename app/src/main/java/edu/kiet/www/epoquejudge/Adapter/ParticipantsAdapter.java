@@ -52,7 +52,7 @@ public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsAdapte
             super(itemView);
             teamName=(TextView)itemView.findViewById(R.id.teamname);
             participants_group=(TextView)itemView.findViewById(R.id.participants_group);
-            participants_solo=(TextView)itemView.findViewById(R.id.participants_solo);
+           participants_solo=(TextView)itemView.findViewById(R.id.participants_solo);
             give_judgement_group=(AppCompatButton)itemView.findViewById(R.id.give_judgement_group);
             give_judgement_group.setOnClickListener(new View.OnClickListener() {
                 @Override
