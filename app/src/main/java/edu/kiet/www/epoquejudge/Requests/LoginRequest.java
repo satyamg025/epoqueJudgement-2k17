@@ -9,6 +9,6 @@ import retrofit2.http.Query;
  * Created by satyam on 2/28/17.
  */
 public interface LoginRequest {
-    @GET("App_controller/login_epk")
+    @GET("App_controller/login_judge_app")
     Call<LoginPOJO> responseRequest();
 }

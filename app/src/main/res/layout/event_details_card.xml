@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
     android:id="@+id/event_card"
-    android:onClick="cardClicked"
     app:cardElevation="5dp"
     card_view:cardBackgroundColor="@android:color/transparent"
     card_view:cardCornerRadius="5dp"

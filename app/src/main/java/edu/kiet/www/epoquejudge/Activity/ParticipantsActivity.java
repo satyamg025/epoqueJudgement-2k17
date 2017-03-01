@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +33,11 @@ public class ParticipantsActivity extends AppCompatActivity {
         setTitleColor(getResources().getColor(R.color.white));
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        recyclerView=(RecyclerView)findViewById(R.id.event_details);
+        recyclerView=(RecyclerView)findViewById(R.id.participants_recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        Toast.makeText(this,String.valueOf(getIntent().getExtras().getString("event_id","")),Toast.LENGTH_LONG).show();
+
         recyclerView.setLayoutManager(linearLayoutManager);
         eventName=new ArrayList<>();
         participants_group=new ArrayList<>();

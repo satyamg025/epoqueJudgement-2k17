@@ -46,6 +46,23 @@ public class Login extends AppCompatActivity {
         login=(Button)findViewById(R.id.login);
         //logintxt=(TextView)parentView.findViewById(R.id.login_text);
 
+        if(DbHandler.getBoolean(Login.this, "isForcedLoggedOut", false)){
+            DbHandler.putBoolean(Login.this,"isForcedLoggedOut",false);
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Session Expired", Snackbar.LENGTH_LONG);
+            coloredSnackBar.alert(snackbar).show();
+        }
+
+        Boolean check_login= DbHandler.getBoolean(getApplicationContext(),"isLoggedIn", false);
+        if(!check_login) {
+            Intent intent=new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+
+        }
+        else {
+            Intent intent=new Intent(getApplicationContext(), Dashboard.class);
+            startActivity(intent);
+        }
+
         username=(EditText)findViewById(R.id.input_roll);
         password=(EditText)findViewById(R.id.input_password);
         user_layout=(TextInputLayout) findViewById(R.id.input_roll_layout);

@@ -1,6 +1,11 @@
 package edu.kiet.www.epoquejudge.Activity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.kiet.www.epoquejudge.Adapter.EventsAdapter;
+import edu.kiet.www.epoquejudge.Models.EventDetailsDataPOJO;
+import edu.kiet.www.epoquejudge.Models.EventDetailsPOJO;
 import edu.kiet.www.epoquejudge.R;
+import edu.kiet.www.epoquejudge.Requests.EventDetailsRequest;
+import edu.kiet.www.epoquejudge.networking.ServiceGenerator;
+import edu.kiet.www.epoquejudge.ui.coloredSnackBar;
+import edu.kiet.www.epoquejudge.util.DbHandler;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Dashboard extends AppCompatActivity {
 RecyclerView recyclerView;
+    ProgressDialog progressDialog;
     EventsAdapter adapter;
     List<String> eventName,type,category,venue,schedule;
 
@@ -27,25 +42,65 @@ RecyclerView recyclerView;
         setTitleColor(getResources().getColor(R.color.white));
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        recyclerView=(RecyclerView)findViewById(R.id.event_details);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
 
-        eventName=new ArrayList<>();
-        type=new ArrayList<>();
-        category=new ArrayList<>();
-        venue=new ArrayList<>();
-        schedule=new ArrayList<>();
-        for (int i=1;i<=10;i++)
-        {
-            eventName.add("Event Name:Event Name");
-            type.add("Type:Institute");
-            category.add("Category:Solo");
-            venue.add("Venue:Ground Floor");
-            schedule.add("Scheduled At:14:00:00");
-        }
-        adapter=new EventsAdapter(this,eventName,type,category,venue,schedule);
-        recyclerView.setAdapter(adapter);
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
+        final EventDetailsRequest request= ServiceGenerator.createService(EventDetailsRequest.class, DbHandler.getString(this,"bearer",""));
+        Call<EventDetailsPOJO> call=request.request();
+        call.enqueue(new Callback<EventDetailsPOJO>() {
+
+                         @Override
+                         public void onResponse(Call<EventDetailsPOJO> call, Response<EventDetailsPOJO> response) {
+                             if(response.code()==200){
+                                 if(!response.body().getError()){
+                                     progressDialog.dismiss();
+                                     EventDetailsDataPOJO data=response.body().getData();
+                                     recyclerView=(RecyclerView)findViewById(R.id.event_details);
+                                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+                                     linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                                     recyclerView.setLayoutManager(linearLayoutManager);
+                                     adapter=new EventsAdapter(getApplicationContext(),data);
+                                     recyclerView.setAdapter(adapter);
+
+                                 }
+                                 else {
+                                     Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Session Expired", Snackbar.LENGTH_LONG);
+                                     coloredSnackBar.alert(snackbar).show();
+                                     DbHandler.unsetSession(Dashboard.this, "isForcedLoggedOut");
+                                 }
+                             } else {
+                                 progressDialog.dismiss();
+                                 new AlertDialog.Builder(Dashboard.this)
+                                         .setTitle("Failed")
+                                         .setMessage("Failed to connect")
+                                         .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+
+                                             @Override
+                                             public void onClick(DialogInterface dialogInterface, int i) {
+                                                 onBackPressed();
+                                             }
+                                         })
+                                         .show();
+                             }
+                         }
+                         @Override
+                         public void onFailure(Call<EventDetailsPOJO> call, Throwable t) {
+                             progressDialog.dismiss();
+                             new AlertDialog.Builder(Dashboard.this)
+                                     .setMessage("Connection failed")
+                                     .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                                         public void onClick(DialogInterface dialog, int which) {
+                                             onBackPressed();
+                                         }
+                                     })
+                                     .show();
+
+                         }
+
+
+                     });
     }
 }

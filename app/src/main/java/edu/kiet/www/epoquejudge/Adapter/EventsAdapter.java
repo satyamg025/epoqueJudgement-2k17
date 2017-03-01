@@ -12,23 +12,25 @@ import org.w3c.dom.Text;
 import java.util.List;
 import edu.kiet.www.epoquejudge.Activity.EventJudgement;
 import edu.kiet.www.epoquejudge.Activity.ParticipantsActivity;
+import edu.kiet.www.epoquejudge.Models.EventDetailsDataPOJO;
+import edu.kiet.www.epoquejudge.Models.EventDetailsPOJO;
 import edu.kiet.www.epoquejudge.R;
+import retrofit2.Callback;
 
 /**
  * Created by sooraj on 27-02-2017.
  */
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.view_holder> {
-    List<String> eventName,type,category,venue,schedule;
+    EventDetailsDataPOJO data;
     Context context;
-         public EventsAdapter(Context context,List<String> eventName, List<String>type, List<String>category, List<String>venue, List<String>schedule){
-             this.eventName=eventName;
-             this.type=type;
-             this.category=category;
-             this.venue=venue;
-             this.schedule=schedule;
-             this.context=context;
-         }
+
+
+    public EventsAdapter(Context context, EventDetailsDataPOJO data) {
+        this.context=context;
+        this.data=data;
+
+    }
 
     @Override
     public view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -38,16 +40,29 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.view_holde
 
     @Override
     public void onBindViewHolder(view_holder holder, int position) {
-        holder.Name.setText(eventName.get(position));
-        holder.Type.setText(type.get(position));
-        holder.Category.setText(category.get(position));
-        holder.Venue.setText(venue.get(position));
-        holder.Schedule.setText(schedule.get(position));
+        holder.Name.setText(data.getName().get(position));
+        if(data.getType().get(position).equals("I")) {
+            holder.Type.setText("Institute");
+        }
+        else{
+            holder.Type.setText("Department");
+        }
+
+        if(data.getCategory().get(position).equals("S")) {
+            holder.Category.setText("Solo");
+        }
+        else{
+            holder.Category.setText("Group");
+        }
+        holder.Venue.setText(data.getVenue().get(position));
+        holder.Schedule.setText(data.getDate()+" "+data.getStartTime()+" to "+data.getEndTime());
+
+
     }
 
     @Override
     public int getItemCount() {
-        return eventName.size();
+        return data.getEventId().size();
     }
     public class view_holder extends RecyclerView.ViewHolder{
         CardView eventCard;
@@ -66,6 +81,16 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.view_holde
                 @Override
                 public void onClick(View v) {
                     Intent intent=new Intent(context,ParticipantsActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent=new Intent(context,ParticipantsActivity.class);
+                    intent.putExtra("event_id",data.getEventId().get(getAdapterPosition()));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }
             });
