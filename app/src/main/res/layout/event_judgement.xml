@@ -59,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m1"
+                android:prompt="Marks"
                 android:layout_weight="0.1"/>
         </TableRow>
         <TableRow
@@ -77,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m2"
+                android:prompt="Marks"
                 android:layout_weight="0.1"/>
         </TableRow>
         <TableRow
@@ -95,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m3"
+                android:prompt="Marks"
                 android:layout_weight="0.1"/>
         </TableRow>
         <TableRow
@@ -113,6 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m4"
+                android:prompt="Marks"
                 android:layout_weight="0.1"/>
         </TableRow>
 
