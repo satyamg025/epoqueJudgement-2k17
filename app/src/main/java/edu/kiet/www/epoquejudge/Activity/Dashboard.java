@@ -2,7 +2,10 @@ package edu.kiet.www.epoquejudge.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +21,15 @@ RecyclerView recyclerView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Dashboard");
+        setTitleColor(getResources().getColor(R.color.white));
         recyclerView=(RecyclerView)findViewById(R.id.event_details);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
         eventName=new ArrayList<>();
         type=new ArrayList<>();
         category=new ArrayList<>();
@@ -33,5 +44,6 @@ RecyclerView recyclerView;
             schedule.add("Scheduled At:14:00:00");
         }
         adapter=new EventsAdapter(this,eventName,type,category,venue,schedule);
+        recyclerView.setAdapter(adapter);
     }
 }
