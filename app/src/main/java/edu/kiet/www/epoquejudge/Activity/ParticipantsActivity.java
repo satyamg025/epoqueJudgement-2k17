@@ -128,8 +128,19 @@ public class ParticipantsActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                     if(response.body().getTeamName().isEmpty())
                     {
-                        Toast.makeText(ParticipantsActivity.this, "No Participants for this event", Toast.LENGTH_SHORT).show();
-                        finish();
+                        Toast.makeText(ParticipantsActivity.this, "No Participants for this event", Toast.LENGTH_LONG).show();
+
+                        new AlertDialog.Builder(ParticipantsActivity.this)
+                                .setMessage("No Participants for this event")
+                                .setCancelable(false)
+                                .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        onBackPressed();
+                                    }
+                                })
+                                .show();
                     }
                     if (response.code() == 200) {
                         recyclerView = (RecyclerView) findViewById(R.id.participants_recycler_view);
