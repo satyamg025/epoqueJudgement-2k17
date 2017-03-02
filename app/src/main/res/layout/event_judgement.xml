@@ -21,7 +21,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_judgement"
+        android:background="@drawable/background_dashboard"
         />
     <TableLayout
         android:layout_width="match_parent"
@@ -72,14 +72,14 @@
                 android:layout_width="match_parent"
                 android:layout_weight="0.9"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:id="@+id/attr1"
                 android:text="Attribute 1"/>
             <Spinner
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m1"
-                android:background="#000000"
+                android:background="#ffffff"
                 android:layout_weight="0.1"/>
                 <!--android:prompt="Marks"-->
 
@@ -94,14 +94,14 @@
                 android:layout_width="match_parent"
                 android:layout_weight="0.9"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:id="@+id/attr2"
                 android:text="Attribute 2"/>
             <Spinner
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m2"
-                android:background="#000000"
+                android:background="#ffffff"
                 android:layout_weight="0.1"/>
                 <!--android:prompt="Marks"-->
 
@@ -116,14 +116,14 @@
                 android:layout_width="match_parent"
                 android:layout_weight="0.9"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:id="@+id/attr3"
                 android:text="Attribute 3"/>
             <Spinner
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m3"
-                android:background="#000000"
+                android:background="#ffffff"
                 android:layout_weight="0.1"/>
                <!-- android:prompt="Marks"-->
 
@@ -138,14 +138,14 @@
                 android:layout_width="match_parent"
                 android:layout_weight="0.9"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:id="@+id/attr4"
                 android:text="Attribute 4"/>
             <Spinner
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m4"
-                android:background="#000000"
+                android:background="#ffffff"
                 android:layout_weight="0.1"/>
                <!-- android:prompt="Marks"-->
 
