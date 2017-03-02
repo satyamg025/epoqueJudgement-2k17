@@ -44,7 +44,7 @@ RecyclerView recyclerView;
         judge=(TextView)findViewById(R.id.judgeName);
         setTitleColor(getResources().getColor(R.color.white));
 
-        judge_name=(TextView)findViewById(R.id.judge_name);
+        judge_name=(TextView)findViewById(R.id.judgeName);
         judge_name.setText("Welcome, "+DbHandler.getString(Dashboard.this,"judge_name",""));
 
         progressDialog=new ProgressDialog(this);

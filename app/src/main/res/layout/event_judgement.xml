@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m1"
-                android:background="#ffffff"
+                android:background="#909090"
                 android:layout_weight="0.1"/>
                 <!--android:prompt="Marks"-->
 
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m2"
-                android:background="#ffffff"
+                android:background="#909090"
                 android:layout_weight="0.1"/>
                 <!--android:prompt="Marks"-->
 
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m3"
-                android:background="#ffffff"
+                android:background="#909090"
                 android:layout_weight="0.1"/>
                <!-- android:prompt="Marks"-->
 
@@ -145,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/m4"
-                android:background="#ffffff"
+                android:background="#909090"
                 android:layout_weight="0.1"/>
                <!-- android:prompt="Marks"-->
 

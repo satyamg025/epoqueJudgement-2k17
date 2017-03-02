@@ -30,7 +30,7 @@ public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsA
 
     @Override
     public view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.event_participants_group_card,null);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.event_participants_group_card,parent,false);
         return new view_holder(view);
     }
 
