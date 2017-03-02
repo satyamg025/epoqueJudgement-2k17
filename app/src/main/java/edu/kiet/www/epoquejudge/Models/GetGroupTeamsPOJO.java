@@ -8,13 +8,15 @@ import java.util.List;
 /**
  * Created by satyam on 3/1/17.
  */
-public class GetGroupTeamsPOJO {
-    @SerializedName("team_name")
-    @Expose
-    private List<String> teamName = null;
+public class GetGroupTeamsPOJO {@SerializedName("team_name")
+@Expose
+private List<String> teamName = null;
     @SerializedName("name")
     @Expose
-    private List<List<String>> name = null;
+    private List<String> name = null;
+    @SerializedName("team_leader")
+    @Expose
+    private List<String> teamLeader = null;
     @SerializedName("team_member")
     @Expose
     private List<String> teamMember = null;
@@ -78,12 +80,20 @@ public class GetGroupTeamsPOJO {
         this.teamName = teamName;
     }
 
-    public List<List<String>> getName() {
+    public List<String> getName() {
         return name;
     }
 
-    public void setName(List<List<String>> name) {
+    public void setName(List<String> name) {
         this.name = name;
+    }
+
+    public List<String> getTeamLeader() {
+        return teamLeader;
+    }
+
+    public void setTeamLeader(List<String> teamLeader) {
+        this.teamLeader = teamLeader;
     }
 
     public List<String> getTeamMember() {
