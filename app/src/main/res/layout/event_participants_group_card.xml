@@ -3,18 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:minHeight="150dp"
-    android:layout_margin="5dp"
-    app:cardCornerRadius="15dp"
+    app:cardCornerRadius="5dp"
+    app:cardUseCompatPadding="true"
     android:id="@+id/participant_group_card"
-    app:cardBackgroundColor="#75d50000">
+    app:theme="@style/AppTheme.Base"
+    app:cardBackgroundColor="#f75e5e">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Team Name"
         android:layout_marginLeft="20dp"
@@ -31,7 +31,7 @@
         android:background="@color/white"
         />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Participants"
             android:layout_marginTop="10dp"

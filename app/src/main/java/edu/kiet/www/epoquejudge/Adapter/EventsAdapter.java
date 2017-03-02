@@ -76,7 +76,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.view_holde
             Category=(TextView)itemView.findViewById(R.id.category);
             Venue=(TextView)itemView.findViewById(R.id.venue);
             Schedule=(TextView)itemView.findViewById(R.id.schedule);
-            eventPhoto=(ImageView)itemView.findViewById(R.id.event_photo);
             eventCard.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

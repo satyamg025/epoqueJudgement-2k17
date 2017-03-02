@@ -73,6 +73,7 @@ public class ParticipantsActivity extends AppCompatActivity {
                             recyclerView = (RecyclerView) findViewById(R.id.participants_recycler_view);
                             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
                             linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                        recyclerView.setHasFixedSize(true);
                             recyclerView.setLayoutManager(linearLayoutManager);
                             adapter = new ParticipantsAdapter(getApplicationContext(), response.body());
                             recyclerView.setAdapter(adapter);
@@ -127,7 +128,8 @@ public class ParticipantsActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                     if (response.code() == 200) {
                         recyclerView = (RecyclerView) findViewById(R.id.participants_recycler_view);
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ParticipantsActivity.this);
+                        recyclerView.setHasFixedSize(false);
                         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                         recyclerView.setLayoutManager(linearLayoutManager);
                         adapter2 = new ParticipantsAdapterGroup(getApplicationContext(), response.body());

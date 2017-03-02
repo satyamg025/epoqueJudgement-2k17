@@ -27,7 +27,8 @@
         </intent-filter>
         </activity>
         <activity android:name=".Activity.EventJudgement"></activity>
-        <activity android:name=".Activity.ParticipantsActivity"></activity>
+        <activity android:name=".Activity.ParticipantsActivity"
+            android:theme="@style/AppTheme.Base"></activity>
     </application>
 
 </manifest>

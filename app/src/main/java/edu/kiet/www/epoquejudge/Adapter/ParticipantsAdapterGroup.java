@@ -1,8 +1,10 @@
 package edu.kiet.www.epoquejudge.Adapter;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +56,7 @@ public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsA
     public class view_holder extends RecyclerView.ViewHolder{
         TextView teamName,participants_group;
         AppCompatButton give_judgement_group;
-        public view_holder(View itemView) {
+        public view_holder(final View itemView) {
             super(itemView);
             teamName=(TextView)itemView.findViewById(R.id.teamname);
             participants_group=(TextView)itemView.findViewById(R.id.participants_group);
@@ -63,7 +65,17 @@ public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsA
                 @Override
                 public void onClick(View v) {
                     Intent intent=new Intent(context,EventJudgement.class);
-                    context.startActivity(intent);
+                    Bundle bundle=new Bundle();
+                    bundle.putString("event_id",data.getEventId().get(getAdapterPosition()));
+                    bundle.putString("id",data.getGid().get(getAdapterPosition()));
+                    bundle.putString("type","G");
+                    bundle.putStringArray("max",data.getMax().toArray(new String[data.getMax().size()]));
+                    bundle.putStringArray("min",data.getMin().toArray(new String[data.getMin().size()]));
+                    bundle.putStringArray("attr_id",data.getAttrId().toArray(new String[data.getAttrId().size()]));
+                   // Log.e("attr_id",String.valueOf((String[])data.getAttrId().toArray()));
+                    bundle.putStringArray("attr",data.getAttributes().toArray(new String[data.getAttributes().size()]));
+                    intent.putExtras(bundle);
+                    itemView.getContext().startActivity(intent);
                 }
             });
 

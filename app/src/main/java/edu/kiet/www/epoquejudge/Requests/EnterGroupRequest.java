@@ -13,6 +13,6 @@ import retrofit2.http.POST;
 public interface EnterGroupRequest {
     @FormUrlEncoded
     @POST("App_controller/enter_group")
-    Call<EnterMarksPOJO> request(@Field("group_id")String lib_id, @Field("event_id") String event_id, @Field("attr_id") String attr_id, @Field("marks") String marks);
+    Call<EnterMarksPOJO> request(@Field("group_id")String group_id, @Field("event_id") String event_id, @Field("attr_id") String attr_id, @Field("marks") String marks);
 
 }
