@@ -16,6 +16,9 @@ public class LoginPOJO {
     @SerializedName("key")
     @Expose
     private String key;
+    @SerializedName("name")
+    @Expose
+    private String name;
 
     public Boolean getError() {
         return error;
@@ -39,6 +42,14 @@ public class LoginPOJO {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

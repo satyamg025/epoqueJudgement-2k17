@@ -23,12 +23,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_dashboard"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome , Hriday Kumar Gupta"
+            android:textColor="@color/white"
+            android:id="@+id/judge_name"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:textSize="25dp"
+            android:textStyle="bold|italic"/>
 <android.support.v7.widget.RecyclerView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
     android:layout_margin="5dp"
     android:id="@+id/event_details">
 
+
 </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
     </FrameLayout>
 </LinearLayout>

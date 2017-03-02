@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class Dashboard extends AppCompatActivity {
 RecyclerView recyclerView;
     ProgressDialog progressDialog;
     EventsAdapter adapter;
+    TextView judge_name;
     List<String> eventName,type,category,venue,schedule;
 
     @Override
@@ -39,6 +41,9 @@ RecyclerView recyclerView;
         setSupportActionBar(toolbar);
         setTitle("Dashboard");
         setTitleColor(getResources().getColor(R.color.white));
+
+        judge_name=(TextView)findViewById(R.id.judge_name);
+        judge_name.setText("Welcome, "+DbHandler.getString(Dashboard.this,"judge_name",""));
 
         progressDialog=new ProgressDialog(this);
         progressDialog.setCancelable(false);
