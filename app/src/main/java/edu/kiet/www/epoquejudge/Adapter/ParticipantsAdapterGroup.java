@@ -39,13 +39,13 @@ public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsA
         holder.teamName.setText(data.getTeamName().get(position));
         String members="";
         String team_mem=data.getTeamMember().get(position);
-        String team_members[]=team_mem.split(",");
-        for(int i=0;i<data.getName().get(position).size();i++){
-            members=members+data.getName().get(position).get(i)+" ("+team_members[i]+")";
-            members=members+"\n";
+      //  String team_members[]=team_mem.split(",");
+        //for(int i=0;i<data.getName().get(position).size();i++){
+          //  members=members+data.getName().get(position).get(i)+" ("+team_members[i]+")";
+            //members=members+"\n";
 
-        }
-        holder.participants_group.setText(members);
+        //}
+        holder.participants_group.setText(data.getName().get(position)+"\n( "+data.getTeamLeader().get(position)+" )");
 
     }
 
