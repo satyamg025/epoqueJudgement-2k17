@@ -6,12 +6,14 @@
     app:cardCornerRadius="5dp"
     app:theme="@style/AppTheme.Base"
     app:cardUseCompatPadding="true"
-    android:id="@+id/participant_solo_card"
-    app:cardBackgroundColor="#3c21c7">
+    app:cardBackgroundColor="@android:color/transparent"
+    android:id="@+id/participant_solo_card">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:padding="5dp"
+        android:background="@drawable/chipbackground"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -23,16 +25,16 @@
             android:id="@+id/participants_solo"
             android:textColor="@color/white"/>
         <android.support.v7.widget.AppCompatButton
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Give Judgement"
-            android:textColor="#00e5ff"
+            android:textColor="#1bffff"
             android:id="@+id/give_judgement_solo"
             android:layout_gravity="right"
             android:textSize="16sp"
-            android:gravity="center"
+            android:gravity="center|right"
             android:padding="5dp"
-            android:background="@drawable/chipbackground"/>
+            android:background="@android:color/transparent"/>
 
     </LinearLayout>
 

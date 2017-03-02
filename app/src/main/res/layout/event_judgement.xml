@@ -21,7 +21,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#90ff3d00"
+        android:background="@drawable/background_judgement"
         />
     <TableLayout
         android:layout_width="match_parent"

@@ -4,25 +4,29 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="5dp"
+    android:layout_margin="5dp"
     app:cardUseCompatPadding="true"
     android:id="@+id/participant_group_card"
     app:theme="@style/AppTheme.Base"
-    app:cardBackgroundColor="#f75e5e">
+    app:cardBackgroundColor="@android:color/transparent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:background="@drawable/chipbackground"
         android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Team Name"
+        android:textAllCaps="true"
         android:layout_marginLeft="20dp"
         android:id="@+id/teamname"
         android:textColor="@color/white"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
@@ -36,21 +40,23 @@
             android:text="Participants"
             android:layout_marginTop="10dp"
             android:textSize="18sp"
+            android:layout_margin="10dp"
             android:id="@+id/participants_group"
             android:textColor="@color/white"/>
+
         <android.support.v7.widget.AppCompatButton
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Give Judgement"
             android:textColor="#00e5ff"
             android:id="@+id/give_judgement_group"
-            android:layout_gravity="right"
+            android:layout_gravity="right|bottom"
             android:textSize="16sp"
-            android:gravity="center"
+            android:gravity="center|right"
             android:padding="5dp"
-            android:background="@drawable/chipbackground"/>
-
+            android:background="@android:color/transparent"/>
     </LinearLayout>
+
 
     </android.support.v7.widget.CardView>
 

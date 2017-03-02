@@ -66,7 +66,8 @@ public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsA
                 public void onClick(View v) {
                     Intent intent=new Intent(context,EventJudgement.class);
                     Bundle bundle=new Bundle();
-                    bundle.putString("event_id",data.getEventId().get(getAdapterPosition()));
+                    Log.e("position",Integer.toString(getAdapterPosition()));
+                    bundle.putString("event_id",data.getEventId().get(0));
                     bundle.putString("id",data.getGid().get(getAdapterPosition()));
                     bundle.putString("type","G");
                     bundle.putStringArray("max",data.getMax().toArray(new String[data.getMax().size()]));
