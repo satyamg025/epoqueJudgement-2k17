@@ -4,7 +4,7 @@
     android:visible="true"
     >
     <gradient
-        android:startColor="#1879ae"
+        android:startColor="#bc1879ae"
         android:endColor="#000000"
         />
 
