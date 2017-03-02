@@ -63,6 +63,7 @@ public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsA
             give_judgement_group=(AppCompatButton)itemView.findViewById(R.id.give_judgement_group);
             if(!data.getalready_judgement().isEmpty()) {
                 Log.e("inside group","inside");
+
                 if (data.getalready_judgement().contains(data.getGid().get(getAdapterPosition()))) {
                     Log.e("Inside", "inside");
                     give_judgement_group.setText("Judgement Done");

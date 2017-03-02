@@ -18,9 +18,6 @@ public class GetSoloTeamsPOJO {
     @SerializedName("event_name")
     @Expose
     private List<String> eventName = null;
-    @SerializedName("already_judgement")
-    @Expose
-    private List<String> already_judgement = null;
     @SerializedName("mob")
     @Expose
     private List<String> mob = null;
@@ -48,6 +45,9 @@ public class GetSoloTeamsPOJO {
     @SerializedName("min")
     @Expose
     private List<String> min = null;
+    @SerializedName("already_judgement")
+    @Expose
+    private List<String> alreadyJudgement = null;
     @SerializedName("count")
     @Expose
     private Integer count;
@@ -89,7 +89,7 @@ public class GetSoloTeamsPOJO {
     }
 
     public List<String> getalready_judgement() {
-        return already_judgement;
+        return alreadyJudgement;
     }
 
     public void setUniRollNo(List<String> uniRollNo) {

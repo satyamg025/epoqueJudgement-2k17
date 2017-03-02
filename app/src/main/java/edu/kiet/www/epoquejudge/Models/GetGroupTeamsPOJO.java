@@ -14,9 +14,7 @@ private List<String> teamName = null;
     @SerializedName("name")
     @Expose
     private List<String> name = null;
-    @SerializedName("already_judgement")
-    @Expose
-    private List<String> already_judgement = null;
+
     @SerializedName("team_leader")
     @Expose
     private List<String> teamLeader = null;
@@ -71,6 +69,9 @@ private List<String> teamName = null;
     @SerializedName("min")
     @Expose
     private List<String> min = null;
+    @SerializedName("already_judgement")
+    @Expose
+    private List<String> already_judgement = null;
     @SerializedName("count")
     @Expose
     private Integer count;
