@@ -14,6 +14,9 @@ private List<String> teamName = null;
     @SerializedName("name")
     @Expose
     private List<String> name = null;
+    @SerializedName("already_judgement")
+    @Expose
+    private List<String> already_judgement = null;
     @SerializedName("team_leader")
     @Expose
     private List<String> teamLeader = null;
@@ -88,8 +91,12 @@ private List<String> teamName = null;
         this.name = name;
     }
 
+
     public List<String> getTeamLeader() {
         return teamLeader;
+    }
+    public List<String> getalready_judgement() {
+        return already_judgement;
     }
 
     public void setTeamLeader(List<String> teamLeader) {

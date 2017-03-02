@@ -126,6 +126,11 @@ public class ParticipantsActivity extends AppCompatActivity {
                 public void onResponse(Call<GetGroupTeamsPOJO> call, Response<GetGroupTeamsPOJO> response) {
 
                     progressDialog.dismiss();
+                    if(response.body().getTeamName().isEmpty())
+                    {
+                        Toast.makeText(ParticipantsActivity.this, "No Participants for this event", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
                     if (response.code() == 200) {
                         recyclerView = (RecyclerView) findViewById(R.id.participants_recycler_view);
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ParticipantsActivity.this);
@@ -136,7 +141,6 @@ public class ParticipantsActivity extends AppCompatActivity {
                         recyclerView.setAdapter(adapter2);
 
                     } else {
-                        progressDialog.dismiss();
                         new AlertDialog.Builder(ParticipantsActivity.this)
                                 .setTitle("Failed")
                                 .setMessage("Failed to connect")

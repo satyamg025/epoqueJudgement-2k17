@@ -50,6 +50,15 @@ public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsAdapte
             teamName=(TextView)itemView.findViewById(R.id.teamname);
            participants_solo=(TextView)itemView.findViewById(R.id.participants_solo);
             give_judgement_solo=(AppCompatButton)itemView.findViewById(R.id.give_judgement_solo);
+
+            if(!data.getalready_judgement().isEmpty()) {
+                Log.e("inside solo","inside");
+                if (data.getalready_judgement().contains(data.getUniqId().get(getAdapterPosition()))) {
+                    Log.e("Inside", "inside");
+                    give_judgement_solo.setText("Judgement Done");
+                    give_judgement_solo.setEnabled(false);
+                }
+            }
             give_judgement_solo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
