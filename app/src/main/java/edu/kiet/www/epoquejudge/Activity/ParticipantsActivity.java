@@ -137,7 +137,7 @@ public class ParticipantsActivity extends AppCompatActivity {
                         recyclerView.setHasFixedSize(false);
                         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                         recyclerView.setLayoutManager(linearLayoutManager);
-                        adapter2 = new ParticipantsAdapterGroup(getApplicationContext(), response.body());
+                        adapter2 = new ParticipantsAdapterGroup(ParticipantsActivity.this, response.body());
                         recyclerView.setAdapter(adapter2);
 
                     } else {

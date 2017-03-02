@@ -1,4 +1,5 @@
 package edu.kiet.www.epoquejudge.Adapter;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,6 +37,14 @@ public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsAdapte
     @Override
     public void onBindViewHolder(view_holder holder, int position) {
         holder.participants_solo.setText(data.getName().get(position));
+        if(!data.getalready_judgement().isEmpty()) {
+            Log.e("inside solo","inside");
+            if (data.getalready_judgement().contains(data.getUniqId().get(position))) {
+                Log.e("Inside", "inside");
+                holder.give_judgement_solo.setText("Judgement Done");
+                holder.give_judgement_solo.setEnabled(false);
+            }
+        }
     }
 
     @Override
@@ -51,14 +60,7 @@ public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsAdapte
            participants_solo=(TextView)itemView.findViewById(R.id.participants_solo);
             give_judgement_solo=(AppCompatButton)itemView.findViewById(R.id.give_judgement_solo);
 
-            if(!data.getalready_judgement().isEmpty()) {
-                Log.e("inside solo","inside");
-                if (data.getalready_judgement().contains(data.getUniqId().get(getAdapterPosition()))) {
-                    Log.e("Inside", "inside");
-                    give_judgement_solo.setText("Judgement Done");
-                    give_judgement_solo.setEnabled(false);
-                }
-            }
+
             give_judgement_solo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -72,9 +74,9 @@ public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsAdapte
                     bundle.putStringArray("attr_id",data.getAttrId().toArray(new String[data.getAttrId().size()]));
                    // Log.e("attr_id",String.valueOf((String[])data.getAttrId().toArray()));
                     bundle.putStringArray("attr",data.getAttributes().toArray(new String[data.getAttributes().size()]));
-
                     intent.putExtras(bundle);
                     itemView.getContext().startActivity(intent);
+                    ((Activity)context).finish();
                 }
             });
 

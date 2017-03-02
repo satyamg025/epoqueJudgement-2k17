@@ -27,7 +27,7 @@
         <android.support.v7.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Give Judgement"
+            android:text="Give Your Judgement"
             android:textColor="#1bffff"
             android:id="@+id/give_judgement_solo"
             android:layout_gravity="right"
