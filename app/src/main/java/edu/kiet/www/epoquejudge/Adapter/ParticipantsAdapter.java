@@ -36,7 +36,7 @@ public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsAdapte
 
     @Override
     public void onBindViewHolder(view_holder holder, int position) {
-        holder.participants_solo.setText(data.getName().get(position));
+        holder.participants_solo.setText(data.getName().get(position)+"\n( "+data.getLibCardNo().get(position)+" )");
         if(!data.getalready_judgement().isEmpty()) {
             Log.e("inside solo","inside");
             if (data.getalready_judgement().contains(data.getUniqId().get(position))) {

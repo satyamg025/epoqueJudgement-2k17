@@ -69,13 +69,30 @@ public class ParticipantsActivity extends AppCompatActivity {
                 public void onResponse(Call<GetSoloTeamsPOJO> call, Response<GetSoloTeamsPOJO> response) {
 
                     progressDialog.dismiss();
+
+                    if(response.body().getName().isEmpty())
+                    {
+                        Toast.makeText(ParticipantsActivity.this, "No Participants for this event", Toast.LENGTH_LONG).show();
+
+                        new AlertDialog.Builder(ParticipantsActivity.this)
+                                .setMessage("No Participants for this event")
+                                .setCancelable(false)
+                                .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        onBackPressed();
+                                    }
+                                })
+                                .show();
+                    }
                     if (response.code() == 200) {
                             recyclerView = (RecyclerView) findViewById(R.id.participants_recycler_view);
                             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
                             linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                         recyclerView.setHasFixedSize(true);
                             recyclerView.setLayoutManager(linearLayoutManager);
-                            adapter = new ParticipantsAdapter(getApplicationContext(), response.body());
+                            adapter = new ParticipantsAdapter(ParticipantsActivity.this, response.body());
                             recyclerView.setAdapter(adapter);
 
                     } else {
