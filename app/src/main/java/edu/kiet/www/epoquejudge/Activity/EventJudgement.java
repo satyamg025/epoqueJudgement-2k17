@@ -158,7 +158,10 @@ public class EventJudgement extends AppCompatActivity implements AdapterView.OnI
                                         else {
                                             if(response.body().getStatus().equalsIgnoreCase("success"))
                                             {
-                                                startActivity(new Intent(EventJudgement.this,Dashboard.class));
+                                                Intent intent=new Intent(EventJudgement.this,ParticipantsActivity.class);
+                                                intent.putExtra("event_id",getIntent().getExtras().getString("event_id"));
+                                                intent.putExtra("category",category);
+                                                startActivity(intent);
                                                 finish();
                                             }
 

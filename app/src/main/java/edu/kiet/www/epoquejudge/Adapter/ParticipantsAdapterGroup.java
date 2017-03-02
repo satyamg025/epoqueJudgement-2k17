@@ -39,6 +39,15 @@ public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsA
         holder.teamName.setText(data.getTeamName().get(position));
         String members="";
         String team_mem=data.getTeamMember().get(position);
+        if(!data.getalready_judgement().isEmpty()) {
+            Log.e("inside group", String.valueOf(data.getGid()));
+
+            if (data.getalready_judgement().contains(data.getGid().get(position))) {
+                Log.e("Inside", "inside");
+                holder.give_judgement_group.setText("Judgement Done");
+                holder.give_judgement_group.setEnabled(false);
+            }
+        }
       //  String team_members[]=team_mem.split(",");
         //for(int i=0;i<data.getName().get(position).size();i++){
           //  members=members+data.getName().get(position).get(i)+" ("+team_members[i]+")";
@@ -61,13 +70,16 @@ public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsA
             teamName=(TextView)itemView.findViewById(R.id.teamname);
             participants_group=(TextView)itemView.findViewById(R.id.participants_group);
             give_judgement_group=(AppCompatButton)itemView.findViewById(R.id.give_judgement_group);
+
+
+
             give_judgement_group.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent=new Intent(context,EventJudgement.class);
                     Bundle bundle=new Bundle();
                     Log.e("position",Integer.toString(getAdapterPosition()));
-                    bundle.putString("event_id",data.getEventId().get(0));
+                    bundle.putString("event_id",data.getEventId().get(getAdapterPosition()));
                     bundle.putString("id",data.getGid().get(getAdapterPosition()));
                     bundle.putString("type","G");
                     bundle.putStringArray("max",data.getMax().toArray(new String[data.getMax().size()]));

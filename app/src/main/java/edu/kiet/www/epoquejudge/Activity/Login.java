@@ -132,6 +132,7 @@ public class Login extends AppCompatActivity {
 
                                 DbHandler.setSession(Login.this, responseBody.getKey(), responseBody.getPerson());
                                 DbHandler.putBoolean(Login.this,"isForcedLoggedOut",false);
+                                DbHandler.putString(Login.this,"judge_name",responseBody.getName());
                                 startActivity(new Intent(Login.this, Dashboard.class));
                             } else {
                                 new AlertDialog.Builder(Login.this)

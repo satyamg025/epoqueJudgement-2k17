@@ -30,6 +30,7 @@ public class Dashboard extends AppCompatActivity {
 RecyclerView recyclerView;
     ProgressDialog progressDialog;
     EventsAdapter adapter;
+    TextView judge_name;
     List<String> eventName,type,category,venue,schedule;
     TextView judge;
 
@@ -42,6 +43,9 @@ RecyclerView recyclerView;
         setTitle("Dashboard");
         judge=(TextView)findViewById(R.id.judgeName);
         setTitleColor(getResources().getColor(R.color.white));
+
+        judge_name=(TextView)findViewById(R.id.judge_name);
+        judge_name.setText("Welcome, "+DbHandler.getString(Dashboard.this,"judge_name",""));
 
         progressDialog=new ProgressDialog(this);
         progressDialog.setCancelable(false);
