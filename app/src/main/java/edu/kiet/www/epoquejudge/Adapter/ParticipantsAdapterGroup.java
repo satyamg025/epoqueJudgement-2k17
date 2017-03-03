@@ -78,7 +78,7 @@ public class ParticipantsAdapterGroup extends RecyclerView.Adapter<ParticipantsA
                     Intent intent=new Intent(context,EventJudgement.class);
                     Bundle bundle=new Bundle();
                     Log.e("position",Integer.toString(getAdapterPosition()));
-                    bundle.putString("event_id",data.getEventId().get(getAdapterPosition()));
+                    bundle.putString("event_id",data.getEventId().get(0));
                     bundle.putString("id",data.getGid().get(getAdapterPosition()));
                     bundle.putString("type","G");
                     bundle.putStringArray("max",data.getMax().toArray(new String[data.getMax().size()]));

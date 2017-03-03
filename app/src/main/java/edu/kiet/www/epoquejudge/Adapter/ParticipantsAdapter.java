@@ -66,7 +66,7 @@ public class ParticipantsAdapter extends RecyclerView.Adapter<ParticipantsAdapte
                 public void onClick(View v) {
                     Bundle bundle=new Bundle();
                     Intent intent=new Intent(context,EventJudgement.class);
-                    bundle.putString("event_id",data.getEventId().get(getAdapterPosition()));
+                    bundle.putString("event_id",data.getEventId().get(0));
                     bundle.putString("id",data.getLibCardNo().get(getAdapterPosition()));
                     bundle.putString("type","S");
                     bundle.putStringArray("max",data.getMax().toArray(new String[data.getMax().size()]));

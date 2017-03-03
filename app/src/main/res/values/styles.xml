@@ -15,9 +15,14 @@
         <item name="android:textColorPrimary">#fff</item>
         <item name="android:textColorSecondary">#fff</item>
         <item name="icon">@color/white</item>
+        <item name="android:alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert</item>
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
     <style name="SplashScreenTheme" parent="Theme.AppCompat.NoActionBar">
+
+        <item name="android:alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert</item>
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert</item>
         <item name="android:windowBackground">@null</item>
 
     </style>

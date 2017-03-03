@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EpoqueJudge</string>
+    <string name="app_name">Epoque Judge</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
